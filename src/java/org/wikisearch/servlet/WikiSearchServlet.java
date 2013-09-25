@@ -41,28 +41,38 @@ public class WikiSearchServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String nextPage;
         HttpSession session = request.getSession(true);
-        
-        if(request.getParameter("doSearch") != null){
-            try{
+
+        if (request.getParameter("doSearch") != null) {
+            try {
                 ArrayList<String> result = new ArrayList<>();
                 WikiSearchWebService_Service service = new WikiSearchWebService_Service();
                 WikiSearchWebService port = service.getWikiSearchWebServicePort();
                 result = (ArrayList<String>) port.doSearch(request.getParameter("keyword"));
-                session.setAttribute("result", result);
-                nextPage = "/result.jsp";
-                reSend(request, response, nextPage);
-            } catch (Exception ex){
+                if (result.isEmpty()) {
+                    nextPage = "/error.jsp";
+                    reSend(request, response, nextPage);
+                } else {
+                    session.setAttribute("result", result);
+                    nextPage = "/result.jsp";
+                    reSend(request, response, nextPage);
+                }
+            } catch (Exception ex) {
                 Logger.getLogger(WikiSearchServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        if(request.getParameter("back") != null){
+
+        if (request.getParameter("back") != null) {
             nextPage = "/index.jsp";
             reSend(request, response, nextPage);
         }
         
+        if (request.getParameter("backError") != null) {
+            nextPage = "/index.jsp";
+            reSend(request, response, nextPage);
+        }
+
     }
-    
+
     public void reSend(HttpServletRequest request, HttpServletResponse response, String npage) {
         try {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(npage);

@@ -19,7 +19,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Info Search Result</title>
+        <title>Search Result</title>
     </head>
     <body>
     <center>
@@ -36,8 +36,12 @@
         }
     %>
     <br><br>
-    <form method="get" action="WikiSearchServlet">
-        <br><input type="submit" value="Back" name="back" />
-    </form>
+
+    <center>
+        <form method="get" action="WikiSearchServlet">
+            <br><input type="submit" value="Back" name="back" style="margin-top: 20px; font-size: 20px; font-weight: lighter"/>
+        </form>
+    </center>
+
 </body>
 </html>

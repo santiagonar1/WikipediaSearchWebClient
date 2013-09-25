@@ -12,14 +12,17 @@
         <title>Wiki Search Web Service Client</title>
     </head>
     <body>
-        <center>
-        <h1>Wiki Search Web Service Client</h1>
-        <br><br>
-        This WebApp allows to search for information using a given keyword.
+    <center>
+        <div style="padding-top: 112px" >
+            <div title="WikiSearch" style="background:url(img/logo.png) no-repeat; background-size:460px 205px; height:205px;width:460px" align="left"></div>
+        </div>
+        <br>
+
         <form method="get" action="WikiSearchServlet">
-            <br><br><input type="text" name="keyword" value=""/>
-            <br><input type="submit" value="Search Info" name="doSearch" />
+            <br><br><input type="text" name="keyword" style="width: 600px"/>
+            <br><input type="submit" value="Search" name="doSearch" style="margin-top: 20px; font-size: 20px; font-weight: lighter"/>
         </form>
+
     </center>
-    </body>
+</body>
 </html>
