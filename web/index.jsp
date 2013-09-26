@@ -19,8 +19,9 @@
         <br>
 
         <form method="get" action="WikiSearchServlet">
-            <br><br><input type="text" name="keyword" style="width: 600px"/>
+            <br><br><input type="text" required="true" name="keyword" style="width: 600px"/>
             <br><input type="submit" value="Search" name="doSearch" style="margin-top: 20px; font-size: 20px; font-weight: lighter"/>
+            <input type="submit" value="I'm Feeling Lucky" name="feelingLucky" style="margin-top: 20px; margin-left: 20px; font-size: 20px; font-weight: lighter"/>
         </form>
 
     </center>
